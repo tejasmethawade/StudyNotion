@@ -21,16 +21,16 @@ database.connect();
 //middlewares
 app.use(express.json());
 app.use(cookieParser());
-const allowedOrigins = ['https://study-notion-teal.vercel.app/'];
-app.use(cors({
-  origin: function(origin, callback) {
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-}));
+// const allowedOrigins = ['https://study-notion-teal.vercel.app/'];
+// app.use(cors({
+//   origin: function(origin, callback) {
+//     if (allowedOrigins.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   }
+// }));
 
 app.use(
 	fileUpload({
