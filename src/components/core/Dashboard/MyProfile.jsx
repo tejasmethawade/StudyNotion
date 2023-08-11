@@ -37,6 +37,7 @@ export default function MyProfile() {
           <RiEditBoxLine />
         </IconBtn>
       </div>
+      
       <div className="my-10 flex flex-col gap-y-10 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
         <div className="flex w-full items-center justify-between">
           <p className="text-lg font-semibold text-richblack-5">About</p>

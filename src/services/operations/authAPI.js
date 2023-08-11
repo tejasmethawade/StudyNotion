@@ -19,6 +19,7 @@ export function sendOtp(email, navigate) {
     const toastId = toast.loading("Loading...")
     dispatch(setLoading(true))
     try {
+
       const response = await apiConnector("POST", SENDOTP_API, {
         email,
         checkUserPresent: true,
@@ -108,6 +109,8 @@ export function login(email, password, navigate) {
       
       localStorage.setItem("token", JSON.stringify(response.data.token))
       localStorage.setItem("user", JSON.stringify(response.data.user))
+
+      console.log("Token after setting in localStorage:", localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")) : null)
       navigate("/dashboard/my-profile")
     } catch (error) {
       console.log("LOGIN API ERROR............", error)

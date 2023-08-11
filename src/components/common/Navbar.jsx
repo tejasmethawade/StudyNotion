@@ -16,12 +16,11 @@ function Navbar() {
   const { user } = useSelector((state) => state.profile)
   const { totalItems } = useSelector((state) => state.cart)
   const location = useLocation()
-
   const [subLinks, setSubLinks] = useState([])
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       setLoading(true)
       try {
         const res = await apiConnector("GET", categories.CATEGORIES_API)
@@ -112,6 +111,7 @@ function Navbar() {
             ))}
           </ul>
         </nav>
+        
         {/* Login / Signup / Dashboard */}
         <div className="hidden items-center gap-x-4 md:flex">
           {user && user?.accountType !== ACCOUNT_TYPE.INSTRUCTOR && (

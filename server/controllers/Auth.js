@@ -86,6 +86,7 @@ exports.signup = async (req, res) => {
       about: null,
       contactNumber: null,
     })
+    
     const user = await User.create({
       firstName,
       lastName,
@@ -128,8 +129,9 @@ exports.login = async (req, res) => {
     }
 
     // Find user with provided email
-    const user = await User.findOne({ email }).populate("additionalDetails")
-
+    const user = await User.findOne({ email }).populate("additionalDetails");
+    console.log("Pritning user...");
+    console.log(user);
     // If user not found with provided email
     if (!user) {
       // Return 401 Unauthorized status code with error message
@@ -154,9 +156,10 @@ exports.login = async (req, res) => {
       user.password = undefined
       // Set cookie for token and return success response
       const options = {
-        expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
+        expires: new Date(Date.now() + 10 * 60 * 1000),
         httpOnly: true,
       }
+      console.log("Token will expire in :", Date.now() + 10 * 60 * 1000);
       res.cookie("token", token, options).status(200).json({
         success: true,
         token,
@@ -202,17 +205,22 @@ exports.sendotp = async (req, res) => {
       lowerCaseAlphabets: false,
       specialChars: false,
     })
+
     const result = await OTP.findOne({ otp: otp })
     console.log("Result is Generate OTP Func")
     console.log("OTP", otp)
     console.log("Result", result)
+
     while (result) {
       otp = otpGenerator.generate(6, {
         upperCaseAlphabets: false,
       })
+
     }
+
     const otpPayload = { email, otp }
     const otpBody = await OTP.create(otpPayload)
+    
     console.log("OTP Body", otpBody)
     res.status(200).json({
       success: true,
