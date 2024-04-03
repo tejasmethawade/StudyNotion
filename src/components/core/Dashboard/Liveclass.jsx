@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux"
 // const {
 //     BROADCAST_API
 // } = endpoints;
-const toggleButton = document.getElementById("toggleCam");
+// const toggleButton = document.getElementById("toggleCam");
 // const socket = io("http://localhost:4000");
 
 export default function Liveclass() {
@@ -144,7 +144,7 @@ export default function Liveclass() {
                     </div>
                 </div>
             </div> */}
-            <LiveClass
+            <h3>LiveClass</h3>
         </div>
     );
 }
