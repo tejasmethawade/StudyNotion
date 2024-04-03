@@ -56,6 +56,9 @@ export default function CoursesTable({ courses, setCourses }) {
             <Th className="text-left text-sm font-medium uppercase text-richblack-100">
               Actions
             </Th>
+            <Th className="text-left text-sm font-medium uppercase text-richblack-100">
+              Live
+            </Th>
           </Tr>
         </Thead>
         <Tbody>
@@ -147,6 +150,15 @@ export default function CoursesTable({ courses, setCourses }) {
                     className="px-1 transition-all duration-200 hover:scale-110 hover:text-[#ff0000]"
                   >
                     <RiDeleteBin6Line size={20} />
+                  </button>
+                </Td>
+                <Td className="text-sm font-medium text-richblack-100">
+                  <button
+                    onClick={() => {
+                      navigate(`/dashboard/liveClass/${course._id}`)
+                    }}
+                  >
+                    Go Live
                   </button>
                 </Td>
               </Tr>
