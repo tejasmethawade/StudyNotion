@@ -113,6 +113,7 @@ function App() {
           <>
           <Route path="dashboard/cart" element={<Cart />} />
           <Route path="dashboard/enrolled-courses" element={<EnrolledCourses />} />
+          <Route path="dashboard/liveLecture/:courseId" element={<Livelecture />} />
           </>
         )
       }
@@ -124,7 +125,10 @@ function App() {
           <Route path="dashboard/add-course" element={<AddCourse />} />
           <Route path="dashboard/my-courses" element={<MyCourses />} />
           <Route path="dashboard/edit-course/:courseId" element={<EditCourse />} />
-          
+          <Route
+                path="dashboard/liveclass/:courseId"
+                element={<Liveclass />}
+          />
           </>
         )
       }
