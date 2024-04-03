@@ -28,6 +28,8 @@ import CourseDetails from "./pages/CourseDetails";
 import ViewCourse from "./pages/ViewCourse";
 import VideoDetails from "./components/core/ViewCourse/VideoDetails";
 import Instructor from "./components/core/Dashboard/InstructorDashboard/Instructor";
+import Liveclass from "./components/core/Dashboard/Liveclass";
+import Livelecture from "./components/core/Dashboard/Livelecture";
 
 function App() {
 
